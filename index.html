@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castro Conecta - A sua nova rede social de criadores</title>
+    <!-- Ícones e Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0066FF;
+            --dark-blue: #0A192F;
+            --light-blue: #E6F0FF;
+            --gold: #FFD700;
+            --dark-gold: #CCAC00;
+            --text-main: #333333;
+            --bg-light: #F8FAFC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .app-icon {
+            width: 45px;
+            height: 45px;
+            background-color: white;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 24px;
+            font-weight: 800;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-header {
+            background-color: white;
+            color: var(--primary-blue);
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .cta-header:hover {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: white;
+            padding: 160px 8% 100px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: var(--gold);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            padding: 16px 35px;
+            border-radius: 35px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            transition: 0.3s;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            background-color: #ffc400;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            min-width: 280px;
+        }
+
+        .mockup {
+            width: 280px;
+            height: 560px;
+            background: #111;
+            border-radius: 40px;
+            border: 8px solid #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 120px;
+            height: 25px;
+            background: #333;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+
+        .mockup .app-big-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-blue);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            color: white;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 20px rgba(0,102,255,0.5);
+        }
+
+        /* SEÇÃO DE BENEFÍCIOS */
+        .features {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 34px;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+
+        .features > p {
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 16px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border-top: 5px solid var(--primary-blue);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,102,255,0.15);
+        }
+
+        .card i {
+            font-size: 45px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+
+        .card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* SEÇÃO DE METAS E CONQUISTAS */
+        .rewards {
+            background: var(--light-blue);
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .rewards h2 {
+            font-size: 34px;
+            color: var(--dark-blue);
+            margin-bottom: 50px;
+        }
+
+        .reward-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .reward-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .reward-badge {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .badge-blue { color: var(--primary-blue); }
+        .badge-gold { color: var(--gold); }
+        .badge-plaque { color: #8A2BE2; }
+
+        .reward-card h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--dark-blue);
+        }
+
+        .reward-card p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* CHAMADA FINAL DE DOWNLOAD */
+        .final-cta {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: white;
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #050D1A;
+            color: #888;
+            padding: 30px 8%;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo-container">
+            <div class="app-icon"><i class="fa-solid fa-c"></i></div>
+            <div class="logo-text">Castro Conecta</div>
+        </div>
+        <a href="#baixar" class="cta-header">Baixar App</a>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Cresça, Grave e <span>Ganhe Dinheiro</span> no Castro Conecta!</h1>
+            <p>A nova rede social feita para criadores de conteúdo bombarem de verdade. Publique seus vídeos, alcance milhares de pessoas, ganhe seguidores rapidamente e seja recompensado em dinheiro a partir de 1.000 visualizações!</p>
+            <a href="#baixar" class="download-btn"><i class="fa-solid fa-download"></i> Baixar Aplicativo Agora</a>
+        </div>
+        <div class="hero-image">
+            <div class="mockup">
+                <div class="app-big-icon"><i class="fa-solid fa-c"></i></div>
+                <h3 style="margin-bottom: 10px;">Castro Conecta</h3>
+                <p style="font-size: 12px; opacity: 0.8;">Sua plataforma de crescimento e monetização rápida.</p>
+                <div style="margin-top: 20px; background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; width: 100%; font-size: 11px;">
+                    ✨ Vídeos em alta <br>💰 Monetização ativa <br>🚀 Crescimento orgânico
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="features">
+        <h2>Por que o Castro Conecta é perfeito para você?</h2>
+        <p>Tudo o que você precisa para transformar sua paixão em sucesso e faturamento.</p>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <i class="fa-solid fa-rocket"></i>
+                <h3>Crescimento Acelerado</h3>
+                <p>Nosso algoritmo inteligente foi feito para impulsionar seus vídeos para novas pessoas, garantindo que você ganhe bastantes seguidores logo nas primeiras postagens.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+                <h3>Monetize a partir de 1k views</h3>
+                <p>Aqui o seu trabalho vale ouro! A partir de 1.000 visualizações em seus vídeos, você começa a faturar seu dinheirinho diretamente pela plataforma.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-users-viewfinder"></i>
+                <h3>Comunidade Ativa</h3>
+                <p>Conecte-se com milhares de outros criadores, troque experiências e cresça junto com uma comunidade engajada e focada no sucesso.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- METAS E CONQUISTAS -->
+    <section class="rewards" id="metas">
+        <h2>Metas, Verificados e Placas Oficiais</h2>
+        <div class="reward-grid">
+            <div class="reward-card">
+                <div class="reward-badge badge-blue"><i class="fa-solid fa-circle-check"></i></div>
+                <h4>Verificado Azul</h4>
+                <p>Conquiste ao atingir a meta de <strong>5.000 seguidores</strong> no seu perfil oficial.</p>
+            </div>
+            <div class="reward-card">
+                <div class="reward-badge badge-gold"><i class="fa-solid fa-award"></i></div>
+                <h4>Verificado Dourado</h4>
+                <p>O selo de elite concedido quando você alcançar a meta de <strong>10.000 seguidores</strong>.</p>
+            </div>
+            <div class="reward-card">
+                <div class="reward-badge badge-plaque"><i class="fa-solid fa-trophy"></i></div>
+                <h4>Placa de Criador</h4>
+                <p>A cobiçada placa física do aplicativo entregue na sua casa ao bater <strong>100.000 seguidores</strong>!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAMADA FINAL -->
+    <section class="final-cta" id="baixar">
+        <h2>Pronto para mudar de patamar?</h2>
+        <p>Baixe agora mesmo o aplicativo <strong>Castro Conecta</strong> e comece sua jornada rumo ao topo, aos seguidores e à monetização.</p>
+        <a href="#" class="download-btn" onclick="alert('Obrigado por baixar o Castro Conecta! O download do aplicativo começará em instantes.')">
+            <i class="fa-brands fa-android"></i> Baixar App (APK / iOS)
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Castro Conecta. Todos os direitos reservados.</p>
+        <p>O aplicativo oficial dos criadores de conteúdo.</p>
+    </footer>
+
+</body>
+</html>
